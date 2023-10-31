@@ -41,9 +41,13 @@ Create a directory with your projects name, open a terminal in that folder and r
 ```
 avrunner -c
 ```
-This will create the MakeFile with a default configuration to operate with an atmega328p and an usbtiny programmer, but you can modify it very easily.
+This will create a MakeFile, a base c project and a task file to automate make commands. The MakeFile has a default configuration to operate with an atmega328p and an usbtiny programmer, but you can modify it very easily through global variables.
 
-![make][avrunner_output_image]
+![avrunner_output][avrunner_output_image]
+
+Finally inside your project you can press `ctrl+shift+b` and the next options will pop up to compile, flash and do many other things with your microcontroller in a beautiful environment!
+
+![tasks][tasks_image]
 
 [microchip_studio_toolchain]: https://www.microchip.com/en-us/tools-resources/develop/microchip-studio/gcc-compilers
 [avrdude]: https://github.com/avrdudes/avrdude/releases
@@ -53,3 +57,4 @@ This will create the MakeFile with a default configuration to operate with an at
 [avrdude_image]: resources/avrdude.png
 [make_image]: resources/make.png
 [avrunner_output_image]: resources/avrunner_output.png
+[tasks_image]: resources/tasks.png
