@@ -43,9 +43,7 @@ avrunner -c
 ```
 This will create the MakeFile with a default configuration to operate with an atmega328p and an usbtiny programmer, but you can modify it very easily.
 
-<video controls autoplay loop>
-  <source src="resources/avrunner.gif" type="video/mp4">
-</video>
+![make][avrunner_gif]
 
 [microchip_studio_toolchain]: https://www.microchip.com/en-us/tools-resources/develop/microchip-studio/gcc-compilers
 [avrdude]: https://github.com/avrdudes/avrdude/releases
@@ -54,3 +52,4 @@ This will create the MakeFile with a default configuration to operate with an at
 [avr_gcc_image]: resources/avr-gcc.png
 [avrdude_image]: resources/avrdude.png
 [make_image]: resources/make.png
+[avrunner_gif]: resources/avrunner.gif
