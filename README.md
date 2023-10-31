@@ -44,7 +44,7 @@ avrunner -c
 This will create the MakeFile with a default configuration to operate with an atmega328p and an usbtiny programmer, but you can modify it very easily.
 
 <video controls autoplay loop>
-  <source src="resources/avrunner.mp4" type="video/mp4">
+  <source src="resources/avrunner.gif" type="video/mp4">
 </video>
 
 [microchip_studio_toolchain]: https://www.microchip.com/en-us/tools-resources/develop/microchip-studio/gcc-compilers
