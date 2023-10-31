@@ -1,0 +1,40 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "make",
+            "detail": "Run make",
+            "type": "shell",
+            "command": "${input:makeTarget} ",
+            "options": {
+                "env": {}
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build"
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "type": "pickString",
+            "id": "makeTarget",
+            "description": "Select a build target",
+            "options": [
+                "make all",
+                "make compile",
+                "make flash",
+                "make show_fuses",
+                "make write_fuses",
+                "make clean",
+                "make squeaky_clean",
+                "make size",
+                "make verify_config", 
+                "make disassemble"
+            ],
+            "default": "make all"
+        }
+    ]
+}
