@@ -1,2 +1,5 @@
+avr8-gnu-toolchain-win32_x86_64/*
+avrdude/*
+GnuWin32/*
 /python/*
 !/python/*.py
