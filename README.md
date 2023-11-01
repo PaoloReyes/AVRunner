@@ -13,9 +13,9 @@ At the end you should have something like this:
 ![tools][tools_image]
 
 Now you have to make tools available to the windows console, we will add the three tools gradually as follows:
-1. Go to *"C:\Program Files (x86)\AVR\avr8-gnu-toolchain-win32_x86_64\bin"*, copy the path and paste it in the windows path system variable.
-2. Go to *"C:\Program Files (x86)\AVR\avrdude"*, copy the path and paste it in the windows path system variable.
-3. Go to *"C:\Program Files (x86)\AVR\GnuWin32\bin"*, copy the path and paste it in the windows path system variable.
+1. Go to `C:\Program Files (x86)\AVR\avr8-gnu-toolchain-win32_x86_64\bin`, copy the path and paste it in the windows path system variable.
+2. Go to `C:\Program Files (x86)\AVR\avrdude`, copy the path and paste it in the windows path system variable.
+3. Go to `C:\Program Files (x86)\AVR\GnuWin32\bin`, copy the path and paste it in the windows path system variable.
 
 Open a new terminal and execute the following commands and you should get a very similar answer: 
 - Verify the correct installation of avr-gcc 
@@ -34,7 +34,7 @@ make --version
 ```
 ![make][make_image]
 
-Once you have all the tools installed, simply download the avrunner folder in this repo and put it inside the `C:\Program Files (x86)\AVR` directory, copy the path *"C:\Program Files (x86)\AVR\avrunner"* and add it to the windows path system variable just as the previous programs and you will be ready.
+Once you have all the tools installed, simply download the avrunner folder in this repo and put it inside the `C:\Program Files (x86)\AVR` directory, copy the path `C:\Program Files (x86)\AVR\avrunner` and add it to the windows path system variable just as the previous programs and you will be ready.
 
 ## Usage
 Create a directory with your projects name, open a terminal in that folder and run the following command: 
