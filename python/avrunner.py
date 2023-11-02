@@ -1,7 +1,7 @@
 import shutil, os, sys, datetime
 
-MCU_LIST_URL = "something.com"
-PROGRAMMER_LIST_URL = "something.com"
+MCU_LIST_URL = "https://github.com/PaoloReyes/AVRunner/blob/main/avrunner/mcu_list.txt"
+PROGRAMMER_LIST_URL = "https://github.com/PaoloReyes/AVRunner/blob/main/avrunner/programmer_list.txt"
 
 def create_utilities(mmcu = None, f_cpu = None, baud = None, bitclock = None, programmer = None) -> None:
     with open(r'C:\Program Files (x86)\AVR\avrunner\Makefile', 'r') as makefile:
