@@ -53,7 +53,8 @@ The options when calling `avrunner` are the following:
 ```
 The following arguments are available:
                   
-  -c     : Creates a C file with the same name as the folder.
+  -c     : Creates a C file with the same name as the folder and configures a C project.
+  -cpp   : Creates a C++ file with the same name as the folder and configures a C++ project.
   --mmcu : Specify the microcontroller to be used.
   -f     : Specify the mcu frequency and can be used as F_CPU in your code.
   -b     : Specify the baudrate value and can be used as BAUD in your code.
