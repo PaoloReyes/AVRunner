@@ -3,10 +3,11 @@ import shutil, os, sys, datetime
 MCU_LIST_URL = "https://github.com/PaoloReyes/AVRunner/blob/main/avrunner/mcu_list.txt"
 PROGRAMMER_LIST_URL = "https://github.com/PaoloReyes/AVRunner/blob/main/avrunner/programmer_list.txt"
 
-def create_utilities(mmcu = None, f_cpu = None, baud = None, bitclock = None, programmer = None) -> None:
+def create_utilities(todo_file = None, mmcu = None, f_cpu = None, baud = None, bitclock = None, programmer = None) -> None:
     with open(r'C:\Program Files (x86)\AVR\avrunner\Makefile', 'r') as makefile:
         makefile_base_data = makefile.readlines()
 
+    first = True
     for line_id, line in enumerate(makefile_base_data):
         if line[0:3] == 'MCU':
             if mmcu != None: makefile_base_data[line_id] = f'MCU   = {mmcu}\n'
@@ -18,6 +19,17 @@ def create_utilities(mmcu = None, f_cpu = None, baud = None, bitclock = None, pr
             if bitclock != None: makefile_base_data[line_id] = makefile_base_data[line_id][:-1]+f' -B {bitclock}\n'
         elif line[0:15] == 'PROGRAMMER_TYPE':
             if programmer != None: makefile_base_data[line_id] = f'PROGRAMMER_TYPE = {programmer}\n'
+        elif line[0:2] == 'CC':
+            if todo_file == 'cpp': makefile_base_data[line_id] = f'CC      = avr-g++\n'
+        elif line[0:7] == 'SOURCES':
+            if todo_file == 'cpp': makefile_base_data[line_id] = f'SOURCES = $(wildcard *.cpp $(LIBDIR)/*.cpp)\n'
+        elif line[0:7] == 'OBJECTS':
+            if todo_file == 'cpp': makefile_base_data[line_id] = f'OBJECTS = $(SOURCES:.cpp=.o)\n'
+        elif line[0:6] == 'CFLAGS' and first:
+            if todo_file == 'cpp': makefile_base_data[line_id] = f'CFLAGS = -Os -std=gnu++11 -Wall\n'
+            first = False
+        elif line[0:4] == '%.o:':
+            if todo_file == 'cpp': makefile_base_data[line_id] = f'%.o: %.cpp $(HEADERS) Makefile\n'
 
     with open(f'{path}\\Makefile', 'w') as makefile:
         makefile.writelines(makefile_base_data)
@@ -68,6 +80,8 @@ elif argc > 1:
         argument = sys.argv[i]
         if argument == '-c':
             todo_file = f'{folder_name}.c'
+        elif argument == '-cpp':
+            todo_file = f'{folder_name}.cpp'
         elif argument[0:6] == '--mmcu':
             mmcu = read_arg(i+1, argument)
             i += is_valid_param(mmcu, r'C:\Program Files (x86)\AVR\avrunner\mcu_list.txt')
@@ -125,5 +139,5 @@ int main(void) {{
         with open(file_path, 'w') as main_file:
             main_file.write(base_project_string)
             success_message = f'AVR project created and initialized in./{todo_file} successfully!!!'
-    create_utilities(mmcu, f_cpu, baud, bitclock, programmer)
+    create_utilities(todo_file.split('.')[1], mmcu, f_cpu, baud, bitclock, programmer)
     print(success_message)

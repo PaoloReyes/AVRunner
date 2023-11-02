@@ -26,7 +26,7 @@ PROGRAMMER_ARGS =
 ##########     Won't need to change if they're in your PATH     ##########
 ##########------------------------------------------------------##########
 
-CC = avr-gcc
+CC      = avr-gcc
 OBJCOPY = avr-objcopy
 OBJDUMP = avr-objdump
 AVRSIZE = avr-size
@@ -53,7 +53,7 @@ OBJECTS = $(SOURCES:.c=.o)
 HEADERS = $(SOURCES:.c=.h)
 
 ## Compilation options, defines macros for F_CPU and BAUD, includes libraries, optimize for size, enable all warnings and use c99 standard.
-CPPFLAGS = -DF_CPU=$(F_CPU) -DBAUD=$(BAUD) -I. -I$(LIBDIR)
+CPPFLAGS = -DF_CPU=$(F_CPU) -DBAUD=$(BAUD) -I$(LIBDIR) -I.
 CFLAGS = -Os -std=gnu99 -Wall
 ## Use short (8-bit) data types 
 CFLAGS += -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums 
@@ -170,4 +170,4 @@ write_fuses:
 	$(AVRDUDE) -c $(PROGRAMMER_TYPE) -p $(MCU) \
 	           $(PROGRAMMER_ARGS) $(FUSE_STRING)
 show_fuses:
-	$(AVRDUDE) -c $(PROGRAMMER_TYPE) -p $(MCU) $(PROGRAMMER_ARGS) -nvs
+	$(AVRDUDE) -c $(PROGRAMMER_TYPE) -p $(MCU) $(PROGRAMMER_ARGS) -nv
