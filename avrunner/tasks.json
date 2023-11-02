@@ -24,7 +24,7 @@
             "description": "Select a build target",
             "options": [
                 "make all",
-                "make compile_and_flash",
+                "make compile",
                 "make flash",
                 "make show_fuses",
                 "make write_fuses",
