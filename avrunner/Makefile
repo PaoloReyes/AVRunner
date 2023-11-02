@@ -19,7 +19,7 @@ LIBDIR = ../../AVR-Programming-Library
 
 PROGRAMMER_TYPE = usbtiny
 ## extra arguments to avrdude: baud rate, chip type, -F flag, etc.
-PROGRAMMER_ARGS = -B 115200
+PROGRAMMER_ARGS =
 
 ##########------------------------------------------------------##########
 ##########                  Program Locations                   ##########
