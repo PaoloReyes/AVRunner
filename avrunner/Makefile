@@ -9,7 +9,7 @@ BAUD  = 9600UL
 ## Also try BAUD = 19200 or 38400 if you're feeling lucky.
 
 ## A directory for common include files.
-LIBDIR = ../../AVR-Programming-Library
+LIBDIR = 
 
 ##########------------------------------------------------------##########
 ##########                 Programmer Defaults                  ##########
