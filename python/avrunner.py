@@ -68,7 +68,7 @@ elif argc > 1:
         argument = sys.argv[i]
         if argument == '-c':
             todo_file = f'{folder_name}.c'
-        elif argument[0:6] == '-mmcu':
+        elif argument[0:6] == '--mmcu':
             mmcu = read_arg(i+1, argument)
             i += is_valid_param(mmcu, r'C:\Program Files (x86)\AVR\avrunner\mcu_list.txt')
         elif argument == '-f':
@@ -85,6 +85,18 @@ elif argc > 1:
         elif argument == '-P':
             programmer = read_arg(i+1, argument)
             i += is_valid_param(programmer, r'C:\Program Files (x86)\AVR\avrunner\programmer_list.txt')
+        elif argument == '--help':
+            print('''
+The following arguments are available:
+                  
+  -c     : Creates a C file with the same name as the folder.
+  --mmcu : Specify the microcontroller to be used.
+  -f     : Specify the mcu frequency and can be used as F_CPU in your code.
+  -b     : Specify the baudrate value and can be used as BAUD in your code.
+  -B     : Specify the bitclock value when using some programmers such as usbtiny (it specifies upload speed in us).
+  -P     : Specify the programmer to be used.
+  --help : Displays this help message.''')
+            sys.exit(0)
         else:
             print(f'Invalid argument: {argument}')
             sys.exit(1)
