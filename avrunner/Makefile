@@ -90,13 +90,13 @@ $(TARGET).elf: $(OBJECTS)
 	$(OBJDUMP) -S $< > $@
 
 ## These targets don't have files named after them
-.PHONY: all compile flash show_fuses write_fuses clean squeaky_clean size verify_config disassemble flash_eeprom flash_usbtiny flash_arduinoISP flash_arduino
+.PHONY: all compile_and_flash flash show_fuses write_fuses clean squeaky_clean size verify_config disassemble flash_eeprom flash_usbtiny flash_arduinoISP flash_arduino
 
 ## Make Hex file
-all: compile
-all: flash
+all: $(TARGET).hex
 
-compile: $(TARGET).hex
+compile_and_flash: all
+compile_and_flash: flash
 
 ## See avr configuration
 verify_config:
