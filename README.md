@@ -49,6 +49,19 @@ Finally inside your project you can press `ctrl+shift+b` and the next options wi
 
 ![tasks][tasks_image]
 
+The options when calling `avrunner` are the following:
+```
+The following arguments are available:
+                  
+  -c     : Creates a C file with the same name as the folder.
+  --mmcu : Specify the microcontroller to be used.
+  -f     : Specify the mcu frequency and can be used as F_CPU in your code.
+  -b     : Specify the baudrate value and can be used as BAUD in your code.
+  -B     : Specify the bitclock value when using some programmers such as usbtiny (it specifies upload speed in us).
+  -P     : Specify the programmer to be used.
+  --help : Displays this help message.
+```
+
 [microchip_studio_toolchain]: https://www.microchip.com/en-us/tools-resources/develop/microchip-studio/gcc-compilers
 [avrdude]: https://github.com/avrdudes/avrdude/releases
 [GnuWin32]: https://gnuwin32.sourceforge.net/packages/make.htm
